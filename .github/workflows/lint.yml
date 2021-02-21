@@ -2,9 +2,7 @@
 name: PHP CI
 
 # Trigger the workflow on push or pull request
-on:
-  push: [main]
-  pull_request: [main]
+on: push
 
 jobs:
   build:
