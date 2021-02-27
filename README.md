@@ -8,6 +8,8 @@
 
 [![asciicast](https://asciinema.org/a/6BZJTI6Ndt2MN73A5MwO94gtK.svg)](https://asciinema.org/a/6BZJTI6Ndt2MN73A5MwO94gtK)
 
+<h3>Game "Math expression"</h3>
+
 
 [![asciicast](https://asciinema.org/a/6NJ1NRQBTOq9BRNLLc4BR4Z4I.svg)](https://asciinema.org/a/6NJ1NRQBTOq9BRNLLc4BR4Z4I)
 
