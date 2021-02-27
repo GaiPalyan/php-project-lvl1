@@ -21,5 +21,7 @@
 
 [![asciicast](https://asciinema.org/a/Uvz02nhDkh4cz4hwBkRsynrYH.svg)](https://asciinema.org/a/Uvz02nhDkh4cz4hwBkRsynrYH)
 
+<h3>Game "IS PRIME?"</h3>
 
+[![asciicast](https://asciinema.org/a/xHJNdZLOHFX3ManxHD0RabciW.svg)](https://asciinema.org/a/xHJNdZLOHFX3ManxHD0RabciW)
 
