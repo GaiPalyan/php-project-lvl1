@@ -13,9 +13,12 @@
 
 [![asciicast](https://asciinema.org/a/6NJ1NRQBTOq9BRNLLc4BR4Z4I.svg)](https://asciinema.org/a/6NJ1NRQBTOq9BRNLLc4BR4Z4I)
 
-<h3>Game "Finde number!"</h3>
+<h3>Game "Find number!"</h3>
 
 
 [![asciicast](https://asciinema.org/a/nky0XxUXKKtCKGCyWK44v0bHc.svg)](https://asciinema.org/a/nky0XxUXKKtCKGCyWK44v0bHc)
+
+<h3>Game "Find Greatest common divisor"</h3>
+
 
 [![asciicast](https://asciinema.org/a/Uvz02nhDkh4cz4hwBkRsynrYH.svg)](https://asciinema.org/a/Uvz02nhDkh4cz4hwBkRsynrYH)
