@@ -5,6 +5,7 @@
 
 [![PHP CI](https://github.com/GaiPalyan/php-project-lvl1/actions/workflows/lint.yml/badge.svg?branch=main)](https://github.com/GaiPalyan/php-project-lvl1/actions/workflows/lint.yml)
 <h3>Game "IS EVEN?"</h3>
+
 [![asciicast](https://asciinema.org/a/6BZJTI6Ndt2MN73A5MwO94gtK.svg)](https://asciinema.org/a/6BZJTI6Ndt2MN73A5MwO94gtK)
 
 
