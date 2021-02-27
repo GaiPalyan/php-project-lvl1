@@ -11,9 +11,9 @@ function isPrime($num): bool
 {
     if ($num == 1) {
         return false;
-    } else if ($num == EXCEPTION_NUMBER) {
+    } elseif ($num == EXCEPTION_NUMBER) {
         return true;
-    } else if (Engine\isEven($num)) {
+    } elseif (Engine\isEven($num)) {
         return false;
     }
 

@@ -4,8 +4,6 @@ namespace Brain\Games\Even;
 
 use Brain\Games\Engine;
 
-
-
 function even()
 {
     $question = 'Answer "yes" if the number is even, otherwise answer "no".';
