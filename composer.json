@@ -9,13 +9,25 @@
         }
     ],
     "bin": [
-        "bin/brain-games"
+        "bin/brain-games",
+        "bin/brain-even",
+        "bin/brain-calc",
+        "bin/brain-grDivisor",
+        "bin/brain-progression",
+        "bin/brain-prime"
     ],
     "license": [
         "MIT"
     ],
     "autoload": {
-        "files": ["src/Cli.php"]
+        "files": ["src/Cli.php",
+            "src/Games/Even.php",
+            "src/Engine.php",
+            "src/Games/Calc.php",
+            "src/Games/grDivisor.php",
+            "src/Games/Progression.php",
+            "src/Games/Prime.php"
+        ]
     },
     "require": {
         "wp-cli/php-cli-tools": "^0.11.11"

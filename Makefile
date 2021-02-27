@@ -9,3 +9,11 @@ validate:
 
 lint:
 	composer run-script phpcs -- --standard=PSR12 src bin
+brain-even:
+	./bin/brain-even
+brain-calc:
+	./bin/brain-calc
+brain-gcd:
+	./bin/brain-grDivisor
+brain-progression:
+	./bin/brain-progression
