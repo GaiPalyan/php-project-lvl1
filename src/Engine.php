@@ -19,12 +19,17 @@ function answer($question)
     return $answer;
 }
 
+function greetUser()
+{
+    line('Welcome to the Brain Games!');
+    $userName = prompt('May i have your name?');
+    line('Hello, ' . $userName);
+    return $userName;
+}
 
 function flow($question, $callback)
 {
-    line('Welcome to the Brain Games!');
-    $userName = answer('May i have your name?');
-    line('Hello, ' . $userName);
+    greetUser();
     line($question);
     for ($i = 0; $i < COUNT_ROUNDS;) {
         $responseFromGames = call_user_func($callback);

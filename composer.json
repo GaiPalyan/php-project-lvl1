@@ -20,7 +20,7 @@
         "MIT"
     ],
     "autoload": {
-        "files": ["src/Cli.php",
+        "files": [
             "src/Games/Even.php",
             "src/Engine.php",
             "src/Games/Calc.php",
