@@ -8,11 +8,7 @@ function expression()
     Engine\flow(
         $question,
         function () {
-            $math           = [
-                '+',
-                '-',
-                '*',
-            ];
+            $math           = ['+', '-', '*',];
             $randExpression = array_rand($math);
             $num            = mt_rand(1, 5);
             $num2           = mt_rand(1, 5);
@@ -29,11 +25,7 @@ function expression()
                 default:
                     $correctAnswer = 0;
             }
-
-            return [
-                'exercise' => $num . $math[$randExpression] . $num2,
-                'correct'  => $correctAnswer,
-            ];
+            return ['exercise' => $num . $math[$randExpression] . $num2, 'correct'  => $correctAnswer,];
         }
     );
 }
