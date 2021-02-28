@@ -12,7 +12,6 @@ function isEven(int $int): bool
     return ($int % 2) == 0;
 }
 
-
 function answer($question)
 {
     $answer = prompt($question);
@@ -29,7 +28,7 @@ function greetUser()
 
 function flow($question, $callback)
 {
-    greetUser();
+    $userName = greetUser();
     line($question);
     for ($i = 0; $i < COUNT_ROUNDS;) {
         $responseFromGames = call_user_func($callback);
