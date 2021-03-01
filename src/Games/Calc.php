@@ -1,5 +1,7 @@
 <?php
 
+namespace Brain\Games\Calc;
+
 use Brain\Games\Engine;
 
 function expression()

@@ -21,8 +21,9 @@
     ],
     "autoload": {
         "files": [
-            "src/Games/Even.php",
+            "src/Cli.php",
             "src/Engine.php",
+            "src/Games/Even.php",
             "src/Games/Calc.php",
             "src/Games/grDivisor.php",
             "src/Games/Progression.php",

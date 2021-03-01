@@ -44,9 +44,9 @@ function flow($question, $callback)
                 line('Congratulations, ' . $userName . '!');
             }
         } else {
-            line($userAnswer . ' is wrong answer ;(. Correct answer was ' . $correctAnswer);
+            line("'{$userAnswer}'" . ' is wrong answer ;(. Correct answer was ' . "'{$correctAnswer}'");
             line('Let\'s try again, ' . $userName . '!');
-            exit();
+            break;
         }
     }
 }
