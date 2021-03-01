@@ -21,7 +21,7 @@ function answer($question)
 function greetUser()
 {
     line('Welcome to the Brain Games!');
-    $userName = prompt('May i have your name?');
+    $userName = prompt('May I have your name?');
     line('Hello, ' . $userName);
     return $userName;
 }
