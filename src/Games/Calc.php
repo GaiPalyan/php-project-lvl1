@@ -27,7 +27,7 @@ function expression()
                 default:
                     $correctAnswer = 0;
             }
-            return ['exercise' => $num . $math[$randExpression] . $num2, 'correct'  => $correctAnswer,];
+            return ['exercise' => "{$num} {$math[$randExpression]} {$num2}", 'correct'  => $correctAnswer,];
         }
     );
 }
