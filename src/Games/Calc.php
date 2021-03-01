@@ -4,12 +4,12 @@ namespace Brain\Games\Calc;
 
 use Brain\Games\Engine;
 
-function expression()
+function expression(): void
 {
     $question = 'What is the result of the expression?';
     Engine\flow(
         $question,
-        function () {
+        function (): array {
             $math           = ['+', '-', '*',];
             $randExpression = array_rand($math);
             $num            = mt_rand(1, 5);

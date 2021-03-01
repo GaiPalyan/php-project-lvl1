@@ -4,7 +4,7 @@ namespace Brain\Games\grDivisor;
 
 use Brain\Games\Engine;
 
-function getGrDivisor($num1, $num2): int
+function getGrDivisor(int $num1, int $num2): int
 {
     while ($num2 != 0) {
         $mod = $num1 % $num2;
@@ -16,12 +16,12 @@ function getGrDivisor($num1, $num2): int
     return $grDivisor;
 }
 
-function grDivisiorGame()
+function grDivisiorGame(): void
 {
     $question = 'Find the greatest common divisor of given numbers.';
     Engine\flow(
         $question,
-        function () {
+        function (): array {
             $num1 = mt_rand(1, 10);
             $num2 = mt_rand(1, 10);
             $grDivisor = getGrDivisor($num1, $num2);

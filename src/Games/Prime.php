@@ -7,7 +7,7 @@ use Brain\Games\Engine;
 const EXCEPTION_NUMBER = 2;
 
 
-function isPrime($num): bool
+function isPrime(int $num): bool
 {
     if ($num == 1) {
         return false;
@@ -27,12 +27,12 @@ function isPrime($num): bool
 }
 
 
-function primeGame()
+function primeGame(): void
 {
     $question = 'Answer "yes" if given number is prime. Otherwise answer "no".';
     Engine\flow(
         $question,
-        function () {
+        function (): array {
             $exercise = mt_rand(1, 50);
             $correct  = isPrime($exercise) ? 'yes' : 'no';
             return [

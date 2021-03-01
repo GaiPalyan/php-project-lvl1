@@ -12,13 +12,13 @@ function isEven(int $int): bool
     return ($int % 2) == 0;
 }
 
-function answer($question)
+function answer(string $question): string
 {
     $answer = prompt($question);
     return $answer;
 }
 
-function greetUser()
+function greetUser(): string
 {
     line('Welcome to the Brain Games!');
     $userName = prompt('May I have your name?');
@@ -26,7 +26,7 @@ function greetUser()
     return $userName;
 }
 
-function flow($question, $callback)
+function flow(string $question, callable $callback): void
 {
     $userName = greetUser();
     line($question);

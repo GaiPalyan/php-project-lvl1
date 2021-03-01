@@ -4,12 +4,12 @@ namespace Brain\Games\Progression;
 
 use Brain\Games\Engine;
 
-function progression()
+function progression(): void
 {
     $question = 'What number is missing in the progression?';
     Engine\flow(
         $question,
-        function () {
+        function (): array {
             $firstProgressionNumber = mt_rand(1, 15);
             $progressionLength      = mt_rand(10, 15);
             $progressionStep        = mt_rand(2, 5);
