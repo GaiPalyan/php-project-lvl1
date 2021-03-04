@@ -36,13 +36,13 @@ function flow(string $question, callable $gameData): void
         $userAnswer = answer('Your answer');
         if (strtolower($userAnswer) === $correctAnswer) {
             line('Correct!');
-            if ($i === COUNT_ROUNDS) {
-                line('Congratulations, ' . $userName . '!');
-            }
         } else {
             line("'{$userAnswer}'" . ' is wrong answer ;(. Correct answer was ' . "'{$correctAnswer}'");
             line('Let\'s try again, ' . $userName . '!');
             break;
         }
+    }
+    if ($i == COUNT_ROUNDS) {
+        line('Congratulations, ' . $userName . '!');
     }
 }
