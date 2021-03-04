@@ -2,21 +2,27 @@
 
 namespace Brain\Games\Even;
 
-use Brain\Games\Engine;
+use function Brain\Games\Engine\flow;
 
-function even(): void
+const QUESTION = 'Answer "yes" if the number is even, otherwise answer "no".';
+
+function isEven(int $int): bool
 {
-    $question = 'Answer "yes" if the number is even, otherwise answer "no".';
+    return ($int % 2) == 0;
+}
 
-    Engine\flow(
-        $question,
-        function (): array {
-            $exercise = mt_rand(1, 30);
-            $correct  = (Engine\isEven($exercise) == true) ? 'yes' : 'no';
-            return [
-                'correct'  => $correct,
-                'exercise' => $exercise,
-            ];
-        }
+function play(): void
+{
+    $gameData = function (): array {
+        $exercise = mt_rand(1, 30);
+        $correct  = (isEven($exercise) == true) ? 'yes' : 'no';
+        return [
+            'correct'  => $correct,
+            'exercise' => $exercise,
+        ];
+    };
+    flow(
+        QUESTION,
+        $gameData
     );
 }

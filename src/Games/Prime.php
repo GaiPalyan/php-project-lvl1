@@ -2,24 +2,18 @@
 
 namespace Brain\Games\Prime;
 
-use Brain\Games\Engine;
+use function Brain\Games\Engine\flow;
 
-const EXCEPTION_NUMBER = 2;
+const QUESTION = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
 
 function isPrime(int $num): bool
 {
-    if ($num == 1) {
-        return false;
-    } elseif ($num == EXCEPTION_NUMBER) {
-        return true;
-    } elseif (Engine\isEven($num)) {
+    if ($num < 2) {
         return false;
     }
-
-    $ceil = ceil(sqrt($num));
-    for ($i = 3; $i <= $ceil; $i += 2) {
-        if (($num % $i) == 0) {
+    for ($i = 2; $i < $num; $i++) {
+        if ($num % $i == 0) {
             return false;
         }
     }
@@ -27,18 +21,18 @@ function isPrime(int $num): bool
 }
 
 
-function primeGame(): void
+function play(): void
 {
-    $question = 'Answer "yes" if given number is prime. Otherwise answer "no".';
-    Engine\flow(
-        $question,
-        function (): array {
-            $exercise = mt_rand(1, 50);
-            $correct  = isPrime($exercise) ? 'yes' : 'no';
-            return [
-                'exercise' => $exercise,
-                'correct'  => $correct,
-            ];
-        }
+    $gameData = function (): array {
+        $exercise = mt_rand(1, 50);
+        $correct  = isPrime($exercise) ? 'yes' : 'no';
+        return [
+            'exercise' => $exercise,
+            'correct'  => $correct,
+        ];
+    };
+    flow(
+        QUESTION,
+        $gameData
     );
 }

@@ -7,10 +7,7 @@ use function cli\prompt;
 
 const COUNT_ROUNDS = 3;
 
-function isEven(int $int): bool
-{
-    return ($int % 2) == 0;
-}
+
 
 function answer(string $question): string
 {
@@ -26,20 +23,19 @@ function greetUser(): string
     return $userName;
 }
 
-function flow(string $question, callable $callback): void
+function flow(string $question, callable $gameData): void
 {
     $userName = greetUser();
     line($question);
-    for ($i = 0; $i < COUNT_ROUNDS;) {
-        $responseFromGames = call_user_func($callback);
+    for ($i = 0; $i < COUNT_ROUNDS; $i++) {
+        $responseFromGames = call_user_func($gameData);
         $gameExercise      = strval($responseFromGames['exercise']);
         $correctAnswer     = strval($responseFromGames['correct']);
 
-        $userAnswer = answer('Question: ' . $gameExercise);
+        line('Question: ' . $gameExercise);
+        $userAnswer = answer('Your answer');
         if (strtolower($userAnswer) === $correctAnswer) {
-            line('Your answer: ' . $userAnswer);
             line('Correct!');
-            $i++;
             if ($i === COUNT_ROUNDS) {
                 line('Congratulations, ' . $userName . '!');
             }

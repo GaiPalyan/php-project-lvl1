@@ -2,32 +2,38 @@
 
 namespace Brain\Games\Calc;
 
-use Brain\Games\Engine;
+use function Brain\Games\Engine\flow;
 
-function expression(): void
+const QUESTION = 'What is the result of the expression?';
+
+
+function play(): void
 {
-    $question = 'What is the result of the expression?';
-    Engine\flow(
-        $question,
-        function (): array {
-            $math           = ['+', '-', '*',];
-            $randExpression = array_rand($math);
-            $num            = mt_rand(1, 5);
-            $num2           = mt_rand(1, 5);
-            switch ($math[$randExpression]) {
-                case '+':
-                    $correctAnswer = ($num + $num2);
-                    break;
-                case '-':
-                    $correctAnswer = ($num - $num2);
-                    break;
-                case '*':
-                    $correctAnswer = ($num * $num2);
-                    break;
-                default:
-                    $correctAnswer = 0;
-            }
-            return ['exercise' => "{$num} {$math[$randExpression]} {$num2}", 'correct'  => $correctAnswer,];
+    $gameData = function (): array {
+        $operator     = ['+', '-', '*',];
+        $randOperator = array_rand($operator);
+        $num          = mt_rand(1, 5);
+        $num2         = mt_rand(1, 5);
+        switch ($operator[$randOperator]) {
+            case '+':
+                $correctAnswer = ($num + $num2);
+                break;
+            case '-':
+                $correctAnswer = ($num - $num2);
+                break;
+            case '*':
+                $correctAnswer = ($num * $num2);
+                break;
+            default:
+                throw new \Error("Unknown math exptression {$operator[$randOperator]}");
         }
+        return [
+            'exercise' => "{$num} {$operator[$randOperator]} {$num2}",
+            'correct'  => $correctAnswer,
+        ];
+    };
+    flow(
+        QUESTION,
+        $gameData
     );
 }

@@ -1,7 +1,7 @@
 #!/usr/bin/env php
 <?php
 
-use Brain\Games\grDivisor;
+use function Brain\Games\grDivisor\play;
 
 $autoloadPath1 = __DIR__.'/../../../autoload.php';
 $autoloadPath2 = __DIR__.'/../vendor/autoload.php';
@@ -12,4 +12,4 @@ if (file_exists($autoloadPath1)) {
     include_once $autoloadPath2;
 }
 
-grDivisor\grDivisiorGame();
+play();
