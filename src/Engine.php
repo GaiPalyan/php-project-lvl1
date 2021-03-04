@@ -42,7 +42,5 @@ function flow(string $question, callable $gameData): void
             break;
         }
     }
-    if ($i == COUNT_ROUNDS) {
-        line('Congratulations, ' . $userName . '!');
-    }
+    line('Congratulations, ' . $userName . '!');
 }
