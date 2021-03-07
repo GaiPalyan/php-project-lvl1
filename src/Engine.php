@@ -7,25 +7,11 @@ use function cli\prompt;
 
 const COUNT_ROUNDS = 3;
 
-
-
-function answer(string $question): string
-{
-    $answer = prompt($question);
-    return $answer;
-}
-
-function greetUser(): string
-{
-    line('Welcome to the Brain Games!');
-    $userName = prompt('May I have your name?');
-    line('Hello, ' . $userName);
-    return $userName;
-}
-
 function flow(string $question, callable $gameData): void
 {
-    $userName = greetUser();
+    line('Welcome to the Brain Games!');
+    $userName = prompt('May I have your name?');;
+    line('Hello, ' . $userName);
     line($question);
     for ($i = 0; $i < COUNT_ROUNDS; $i++) {
         $responseFromGames = call_user_func($gameData);
@@ -33,7 +19,7 @@ function flow(string $question, callable $gameData): void
         $correctAnswer     = strval($responseFromGames['correct']);
 
         line('Question: ' . $gameExercise);
-        $userAnswer = answer('Your answer');
+        $userAnswer = prompt('Your answer');
         if (strtolower($userAnswer) === $correctAnswer) {
             line('Correct!');
         } else {
