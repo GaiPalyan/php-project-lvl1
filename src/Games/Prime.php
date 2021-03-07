@@ -2,9 +2,9 @@
 
 namespace Brain\Games\Prime;
 
-use function Brain\Games\Engine\flow;
+use function Brain\Games\Engine\Engine;
 
-const QUESTION = 'Answer "yes" if given number is prime. Otherwise answer "no".';
+const DESCRIPTION = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
 
 function isPrime(int $num): bool
@@ -25,14 +25,14 @@ function play(): void
 {
     $gameData = function (): array {
         $exercise = mt_rand(1, 50);
-        $correct  = isPrime($exercise) ? 'yes' : 'no';
+        $correctAnswer  = isPrime($exercise) ? 'yes' : 'no';
         return [
-            'exercise' => $exercise,
-            'correct'  => $correct,
+            'question' => $exercise,
+            'correctAnswer'  => $correctAnswer,
         ];
     };
-    flow(
-        QUESTION,
+    Engine(
+        DESCRIPTION,
         $gameData
     );
 }

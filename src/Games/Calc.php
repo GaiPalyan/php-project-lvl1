@@ -2,9 +2,9 @@
 
 namespace Brain\Games\Calc;
 
-use function Brain\Games\Engine\flow;
+use function Brain\Games\Engine\Engine;
 
-const QUESTION = 'What is the result of the expression?';
+const DESCRIPTION = 'What is the result of the expression?';
 
 
 function play(): void
@@ -25,15 +25,15 @@ function play(): void
                 $correctAnswer = ($num * $num2);
                 break;
             default:
-                throw new \Error("Unknown math exptression {$operator[$randOperator]}");
+                throw new \Error("Unknown math expression {$operator[$randOperator]}");
         }
         return [
-            'exercise' => "{$num} {$operator[$randOperator]} {$num2}",
+            'question' => "{$num} {$operator[$randOperator]} {$num2}",
             'correct'  => $correctAnswer,
         ];
     };
-    flow(
-        QUESTION,
+    Engine(
+        DESCRIPTION,
         $gameData
     );
 }

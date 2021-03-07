@@ -2,9 +2,9 @@
 
 namespace Brain\Games\Progression;
 
-use function Brain\Games\Engine\flow;
+use function Brain\Games\Engine\Engine;
 
-const QUESTION = 'What number is missing in the progression?';
+const DESCRIPTION = 'What number is missing in the progression?';
 
 function play(): void
 {
@@ -18,17 +18,17 @@ function play(): void
             $progression[] = $firstProgressionNumber + ($n - 1) * $progressionStep;
         }
 
-        $keyOfNumber         = array_rand($progression, 1);
-        $correct             = $progression[$keyOfNumber];
+        $keyOfNumber               = array_rand($progression, 1);
+        $correctAnswer                   = $progression[$keyOfNumber];
         $progression[$keyOfNumber] = '..';
-        $question            = implode(' ', $progression);
+        $question                  = implode(' ', $progression);
         return [
-            'exercise' => $question,
-            'correct'  => $correct,
+            'question' => $question,
+            'correctAnswer'  => $correctAnswer,
         ];
     };
-    flow(
-        QUESTION,
+    Engine(
+        DESCRIPTION,
         $gameData
     );
 }

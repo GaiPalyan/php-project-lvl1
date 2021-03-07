@@ -2,9 +2,9 @@
 
 namespace Brain\Games\Even;
 
-use function Brain\Games\Engine\flow;
+use function Brain\Games\Engine\Engine;
 
-const QUESTION = 'Answer "yes" if the number is even, otherwise answer "no".';
+const DESCRIPTION = 'Answer "yes" if the number is even, otherwise answer "no".';
 
 function isEven(int $int): bool
 {
@@ -15,14 +15,11 @@ function play(): void
 {
     $gameData = function (): array {
         $exercise = mt_rand(1, 30);
-        $correct  = (isEven($exercise) == true) ? 'yes' : 'no';
-        return [
-            'correct'  => $correct,
-            'exercise' => $exercise,
-        ];
+        $correctAnswer  = isEven($exercise) == true ? 'yes' : 'no';
+        return ['question' => $exercise, 'correctAnswer'  => $correctAnswer];
     };
-    flow(
-        QUESTION,
+    Engine(
+        DESCRIPTION,
         $gameData
     );
 }

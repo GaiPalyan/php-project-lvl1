@@ -25,7 +25,7 @@
             "src/Engine.php",
             "src/Games/Even.php",
             "src/Games/Calc.php",
-            "src/Games/grDivisor.php",
+            "src/Games/gcd.php",
             "src/Games/Progression.php",
             "src/Games/Prime.php"
         ]

@@ -1,21 +1,19 @@
 <?php
 
-namespace Brain\Games\grDivisor;
+namespace Brain\Games\gcd;
 
-use function Brain\Games\Engine\flow;
+use function Brain\Games\Engine\Engine;
 
-const QUESTION = 'Find the greatest common divisor of given numbers.';
+const DESCRIPTION = 'Find the greatest common divisor of given numbers.';
 
-function getGrDivisor(int $num1, int $num2): int
+function getGCD(int $num1, int $num2): int
 {
     while ($num2 != 0) {
         $mod = $num1 % $num2;
         $num1 = $num2;
         $num2 = $mod;
     }
-    $grDivisor = $num1;
-
-    return $grDivisor;
+    return $num1;
 }
 
 function play(): void
@@ -23,11 +21,11 @@ function play(): void
     $gameData = function (): array {
         $num1 = mt_rand(1, 10);
         $num2 = mt_rand(1, 10);
-        $grDivisor = getGrDivisor($num1, $num2);
-        return ['exercise' => $num1 . ' ' . $num2, 'correct' => $grDivisor];
+        $correctAnswer = getGCD($num1, $num2);
+        return ['question' => $num1 . ' ' . $num2, 'correctAnswer' => $correctAnswer];
     };
-    flow(
-        QUESTION,
+    Engine(
+        DESCRIPTION,
         $gameData
     );
 }

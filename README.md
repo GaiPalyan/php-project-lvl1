@@ -5,23 +5,34 @@
 
 [![PHP CI](https://github.com/GaiPalyan/php-project-lvl1/actions/workflows/lint.yml/badge.svg?branch=main)](https://github.com/GaiPalyan/php-project-lvl1/actions/workflows/lint.yml)
 
-<h3>Game "IS EVEN?"</h3>
+
+<h6>FAQ</h6>
+
+<p>This package use makefile, so make sure the make command is installed on your system. Then:</p>
+<ol>
+<li>git@github.com:GaiPalyan/php-project-lvl1.git</li>
+<li>make install</li>
+<li>make brain-'gamename'</li>
+</ol>
+
+
+<h4>Game "IS EVEN?"</h3>
 
 [![asciicast](https://asciinema.org/a/6BZJTI6Ndt2MN73A5MwO94gtK.svg)](https://asciinema.org/a/6BZJTI6Ndt2MN73A5MwO94gtK)
 
-<h3>Game "Expression"</h3>
+<h4>Game "Expression"</h3>
 
 [![asciicast](https://asciinema.org/a/6NJ1NRQBTOq9BRNLLc4BR4Z4I.svg)](https://asciinema.org/a/6NJ1NRQBTOq9BRNLLc4BR4Z4I)
 
-<h3>Game "Find Number!"</h3>
+<h4>Game "Find Number!"</h3>
 
 [![asciicast](https://asciinema.org/a/nky0XxUXKKtCKGCyWK44v0bHc.svg)](https://asciinema.org/a/nky0XxUXKKtCKGCyWK44v0bHc)
 
-<h3>Game "Find greatest common divisor"</h3>
+<h4>Game "Find greatest common divisor"</h3>
 
 [![asciicast](https://asciinema.org/a/Uvz02nhDkh4cz4hwBkRsynrYH.svg)](https://asciinema.org/a/Uvz02nhDkh4cz4hwBkRsynrYH)
 
-<h3>Game "IS PRIME?"</h3>
+<h4>Game "IS PRIME?"</h3>
 
 [![asciicast](https://asciinema.org/a/xHJNdZLOHFX3ManxHD0RabciW.svg)](https://asciinema.org/a/xHJNdZLOHFX3ManxHD0RabciW)
 
