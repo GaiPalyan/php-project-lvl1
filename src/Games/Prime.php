@@ -9,10 +9,11 @@ const DESCRIPTION = 'Answer "yes" if given number is prime. Otherwise answer "no
 
 function isPrime(int $num): bool
 {
-    if ($num < 2) {
+    if ($num % 2 == 0) {
         return false;
     }
-    for ($i = 2; $i < $num; $i++) {
+    $divisor = $num / 2;
+    for ($i = 3; $i < floor($divisor); $i++) {
         if ($num % $i == 0) {
             return false;
         }
@@ -24,10 +25,10 @@ function isPrime(int $num): bool
 function play(): void
 {
     $gameData = function (): array {
-        $exercise = mt_rand(1, 50);
-        $correctAnswer  = isPrime($exercise) ? 'yes' : 'no';
+        $number = mt_rand(1, 50);
+        $correctAnswer  = isPrime($number) ? 'yes' : 'no';
         return [
-            'question' => $exercise,
+            'question'       => $number,
             'correctAnswer'  => $correctAnswer,
         ];
     };

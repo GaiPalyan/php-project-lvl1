@@ -10,9 +10,9 @@
 
 <p>This package use makefile, so make sure the make command is installed on your system. Then:</p>
 <ol>
-<li>git@github.com:GaiPalyan/php-project-lvl1.git</li>
-<li>make install</li>
-<li>make brain-'gamename'</li>
+<li>$ git clone git@github.com:GaiPalyan/php-project-lvl1.git</li>
+<li>$ make install</li>
+<li>$ make brain-'gamename'</li>
 </ol>
 
 

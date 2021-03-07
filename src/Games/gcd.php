@@ -9,7 +9,7 @@ const DESCRIPTION = 'Find the greatest common divisor of given numbers.';
 function getGCD(int $num1, int $num2): int
 {
     while ($num2 != 0) {
-        $mod = $num1 % $num2;
+        $mod  = $num1 % $num2;
         $num1 = $num2;
         $num2 = $mod;
     }

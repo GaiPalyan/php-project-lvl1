@@ -15,10 +15,10 @@ function Engine(string $question, callable $gameData): void
     line($question);
     for ($i = 0; $i < COUNT_ROUNDS; $i++) {
         $responseFromGames = call_user_func($gameData);
-        $gameExercise      = strval($responseFromGames['question']);
+        $gameQuestion      = strval($responseFromGames['question']);
         $correctAnswer     = strval($responseFromGames['correctAnswer']);
 
-        line('Question: ' . $gameExercise);
+        line('Question: ' . $gameQuestion);
         $userAnswer = prompt('Your answer');
         if (strtolower($userAnswer) === $correctAnswer) {
             line('Correct!');
@@ -28,5 +28,7 @@ function Engine(string $question, callable $gameData): void
             break;
         }
     }
-    line('Congratulations, ' . $userName . '!');
+    if ($i === COUNT_ROUNDS) {
+        line('Congratulations, ' . $userName . '!');
+    }
 }

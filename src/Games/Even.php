@@ -6,7 +6,7 @@ use function Brain\Games\Engine\Engine;
 
 const DESCRIPTION = 'Answer "yes" if the number is even, otherwise answer "no".';
 
-function isEven(int $int): bool
+function getEven(int $int): bool
 {
     return ($int % 2) == 0;
 }
@@ -14,9 +14,9 @@ function isEven(int $int): bool
 function play(): void
 {
     $gameData = function (): array {
-        $exercise = mt_rand(1, 30);
-        $correctAnswer  = isEven($exercise) == true ? 'yes' : 'no';
-        return ['question' => $exercise, 'correctAnswer'  => $correctAnswer];
+        $number = mt_rand(1, 30);
+        $correctAnswer  = getEven($number) == true ? 'yes' : 'no';
+        return ['question' => $number, 'correctAnswer'  => $correctAnswer];
     };
     Engine(
         DESCRIPTION,

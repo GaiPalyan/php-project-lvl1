@@ -6,31 +6,38 @@ use function Brain\Games\Engine\Engine;
 
 const DESCRIPTION = 'What is the result of the expression?';
 
+function getExpression(int $num1, int $num2): array
+{
+        $operator     = ['+', '-', '*',];
+        $randOperator = array_rand($operator);
+    switch ($operator[$randOperator]) {
+        case '+':
+            $question      = "{$num1} + {$num2}";
+            $correctAnswer = $num1 + $num2;
+            break;
+        case '-':
+            $question      = "{$num1} - {$num2}";
+            $correctAnswer = $num1 - $num2;
+            break;
+        case '*':
+            $question      = "{$num1} * {$num2}";
+            $correctAnswer = $num1 * $num2;
+            break;
+        default:
+            throw new \Error("Unknown math expression {$operator[$randOperator]}");
+    }
+            return [
+                'question'       => $question,
+                'correctAnswer'  => $correctAnswer,
+                ];
+}
 
 function play(): void
 {
     $gameData = function (): array {
-        $operator     = ['+', '-', '*',];
-        $randOperator = array_rand($operator);
-        $num          = mt_rand(1, 5);
-        $num2         = mt_rand(1, 5);
-        switch ($operator[$randOperator]) {
-            case '+':
-                $correctAnswer = ($num + $num2);
-                break;
-            case '-':
-                $correctAnswer = ($num - $num2);
-                break;
-            case '*':
-                $correctAnswer = ($num * $num2);
-                break;
-            default:
-                throw new \Error("Unknown math expression {$operator[$randOperator]}");
-        }
-        return [
-            'question' => "{$num} {$operator[$randOperator]} {$num2}",
-            'correct'  => $correctAnswer,
-        ];
+        $num1         = mt_rand(1, 8);
+        $num2         = mt_rand(1, 8);
+        return getExpression($num1, $num2);
     };
     Engine(
         DESCRIPTION,
