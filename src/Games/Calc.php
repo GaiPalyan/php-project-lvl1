@@ -2,7 +2,6 @@
 
 namespace Brain\Games\Calc;
 
-use Error;
 use function Brain\Games\Engine\Engine;
 
 const DESCRIPTION = 'What is the result of the expression?';
@@ -25,7 +24,7 @@ function getExpression(int $num1, int $num2): array
             $correctAnswer = $num1 * $num2;
             break;
         default:
-            throw new Error("Unknown math expression {$operators[$randOperator]}");
+            throw new \Error("Unknown math expression {$operators[$randOperator]}");
     }
             return [
                 'question'       => $question,
