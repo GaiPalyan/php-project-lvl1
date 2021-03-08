@@ -26,10 +26,10 @@ function getProgression(int $firstNum, int $length, int $step): array
 function play(): void
 {
     $gameData = function (): array {
-        $firstProgressionNumber = mt_rand(1, 15);
-        $progressionLength      = mt_rand(10, 15);
-        $progressionStep        = mt_rand(2, 5);
-        return getProgression($firstProgressionNumber, $progressionLength, $progressionStep);
+        $firstNum = mt_rand(1, 15);
+        $length      = mt_rand(10, 15);
+        $step        = mt_rand(2, 5);
+        return getProgression($firstNum, $length, $step);
     };
     Engine(
         DESCRIPTION,

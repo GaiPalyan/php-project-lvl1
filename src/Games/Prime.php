@@ -6,10 +6,11 @@ use function Brain\Games\Engine\Engine;
 
 const DESCRIPTION = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
-
 function isPrime(int $num): bool
 {
-    if ($num % 2 == 0) {
+    if ($num == 2) {
+        return true;
+    } elseif (($num % 2 == 0) || $num == 1) {
         return false;
     }
     $divisor = $num / 2;
@@ -20,7 +21,6 @@ function isPrime(int $num): bool
     }
     return true;
 }
-
 
 function play(): void
 {
