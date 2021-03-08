@@ -7,12 +7,12 @@ use function cli\prompt;
 
 const COUNT_ROUNDS = 3;
 
-function Engine(string $question, callable $gameData): void
+function Engine(string $description, callable $gameData): void
 {
     line('Welcome to the Brain Games!');
     $userName = prompt('May I have your name?');
     line('Hello, ' . $userName);
-    line($question);
+    line($description);
     for ($i = 0; $i < COUNT_ROUNDS; $i++) {
         $responseFromGames = call_user_func($gameData);
         $gameQuestion      = strval($responseFromGames['question']);
