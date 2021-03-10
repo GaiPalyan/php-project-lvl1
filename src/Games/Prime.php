@@ -8,14 +8,12 @@ const DESCRIPTION = 'Answer "yes" if given number is prime. Otherwise answer "no
 
 function isPrime(int $num): bool
 {
-    if ($num == 2) {
-        return true;
-    } elseif (($num % 2 == 0) || $num == 1) {
+    if ($num < 2) {
         return false;
     }
-    $divisor = $num / 2;
-    for ($i = 3; $i < floor($divisor); $i++) {
-        if ($num % $i == 0) {
+    $border = $num / 2;
+    for ($i = 2; $i < floor($border); $i++) {
+        if ($num % $i === 0) {
             return false;
         }
     }
