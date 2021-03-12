@@ -27,8 +27,8 @@ function play(): void
 {
     $gameData = function (): array {
         $firstNum = mt_rand(1, 15);
-        $length      = mt_rand(10, 15);
-        $step        = mt_rand(2, 5);
+        $length   = mt_rand(10, 15);
+        $step     = mt_rand(2, 5);
         return getProgression($firstNum, $length, $step);
     };
     Engine(

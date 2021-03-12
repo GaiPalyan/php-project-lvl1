@@ -24,7 +24,7 @@ function play(): void
 {
     $gameData = function (): array {
         $number = mt_rand(1, 50);
-        $correctAnswer  = isPrime($number) ? 'yes' : 'no';
+        $correctAnswer = isPrime($number) ? 'yes' : 'no';
         return [
             'question'       => $number,
             'correctAnswer'  => $correctAnswer,
