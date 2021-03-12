@@ -2,7 +2,7 @@
 
 namespace Brain\Games\Even;
 
-use function Brain\Games\Engine\Engine;
+use function Brain\Games\Engine\runEngine;
 
 const DESCRIPTION = 'Answer "yes" if the number is even, otherwise answer "no".';
 
@@ -18,7 +18,7 @@ function play(): void
         $correctAnswer = isEven($number) === true ? 'yes' : 'no';
         return ['question' => $number, 'correctAnswer' => $correctAnswer];
     };
-    Engine(
+    runEngine(
         DESCRIPTION,
         $gameData
     );
