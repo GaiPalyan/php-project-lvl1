@@ -21,8 +21,9 @@ function play(): void
     $gameData = function (): array {
         $num1 = mt_rand(1, 10);
         $num2 = mt_rand(1, 10);
+        $pair = "{$num1} {$num2}";
         $correctAnswer = getGCD($num1, $num2);
-        return ['question' => $num1 . ' ' . $num2, 'correctAnswer' => $correctAnswer];
+        return ['question' => $pair, 'correctAnswer' => $correctAnswer];
     };
     runEngine(
         DESCRIPTION,
