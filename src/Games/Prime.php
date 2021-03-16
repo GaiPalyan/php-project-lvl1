@@ -2,7 +2,7 @@
 
 namespace Brain\Games\Prime;
 
-use function Brain\Games\Engine\runEngine;
+use function Brain\Games\Engine\run;
 
 const DESCRIPTION = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
@@ -25,12 +25,9 @@ function play(): void
     $gameData = function (): array {
         $number = mt_rand(1, 50);
         $correctAnswer = isPrime($number) ? 'yes' : 'no';
-        return [
-            'question' => $number,
-            'correctAnswer' => $correctAnswer,
-        ];
+        return [$number, $correctAnswer];
     };
-    runEngine(
+    run(
         DESCRIPTION,
         $gameData
     );

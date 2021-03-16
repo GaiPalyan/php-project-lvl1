@@ -2,7 +2,7 @@
 
 namespace Brain\Games\gcd;
 
-use function Brain\Games\Engine\runEngine;
+use function Brain\Games\Engine\run;
 
 const DESCRIPTION = 'Find the greatest common divisor of given numbers.';
 
@@ -23,9 +23,9 @@ function play(): void
         $num2 = mt_rand(1, 10);
         $pair = "{$num1} {$num2}";
         $correctAnswer = getGCD($num1, $num2);
-        return ['question' => $pair, 'correctAnswer' => $correctAnswer];
+        return [$pair, $correctAnswer];
     };
-    runEngine(
+    run(
         DESCRIPTION,
         $gameData
     );

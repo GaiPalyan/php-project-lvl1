@@ -2,7 +2,7 @@
 
 namespace Brain\Games\Progression;
 
-use function Brain\Games\Engine\runEngine;
+use function Brain\Games\Engine\run;
 
 const DESCRIPTION = 'What number is missing in the progression?';
 
@@ -20,16 +20,13 @@ function getProgression(): array
     $hiddenNumber = $progression[$randPosition];
     $progression[$randPosition] = '..';
     $hiddenPosition = implode(' ', $progression);
-    return [
-        'question' => $hiddenPosition,
-        'correctAnswer' => $hiddenNumber,
-    ];
+    return [$hiddenPosition, $hiddenNumber];
 }
 
 function play(): void
 {
     $gameData = fn() => getProgression();
-    runEngine(
+    run(
         DESCRIPTION,
         $gameData
     );
