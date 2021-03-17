@@ -11,8 +11,7 @@ function isPrime(int $num): bool
     if ($num < 2) {
         return false;
     }
-    $border = $num / 2;
-    for ($i = 2; $i < floor($border); $i++) {
+    for ($i = 2; $i <= $num / 2; $i++) {
         if ($num % $i === 0) {
             return false;
         }
@@ -20,15 +19,15 @@ function isPrime(int $num): bool
     return true;
 }
 
+function getPrime(): array
+{
+    $number = mt_rand(1, 35);
+    $correctAnswer = isPrime($number) ? 'yes' : 'no';
+    return [$number, $correctAnswer];
+}
+
 function play(): void
 {
-    $gameData = function (): array {
-        $number = mt_rand(1, 50);
-        $correctAnswer = isPrime($number) ? 'yes' : 'no';
-        return [$number, $correctAnswer];
-    };
-    run(
-        DESCRIPTION,
-        $gameData
-    );
+    $gameData = fn() => getPrime();
+    run(DESCRIPTION, $gameData);
 }

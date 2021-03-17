@@ -6,7 +6,7 @@ use function Brain\Games\Engine\run;
 
 const DESCRIPTION = 'What number is missing in the progression?';
 
-function getProgression(): array
+function buildProgression(): array
 {
     $firstNum = mt_rand(1, 15);
     $length = mt_rand(10, 15);
@@ -15,19 +15,21 @@ function getProgression(): array
     for ($n = 0; $n < $length; $n++) {
         $progression[] = $firstNum + $n * $step;
     }
+    return $progression;
+}
 
-    $randPosition = array_rand($progression, 1);
-    $hiddenNumber = $progression[$randPosition];
+function hideProgression(): array
+{
+    $progression = buildProgression();
+    $randPosition = array_rand($progression);
+    $correctAnswer = $progression[$randPosition];
     $progression[$randPosition] = '..';
-    $hiddenPosition = implode(' ', $progression);
-    return [$hiddenPosition, $hiddenNumber];
+    $hiddenProgression = implode(' ', $progression);
+    return [$hiddenProgression, $correctAnswer];
 }
 
 function play(): void
 {
-    $gameData = fn() => getProgression();
-    run(
-        DESCRIPTION,
-        $gameData
-    );
+    $gameData = fn() => hideProgression();
+    run(DESCRIPTION, $gameData);
 }

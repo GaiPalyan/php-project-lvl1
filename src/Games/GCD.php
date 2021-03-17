@@ -16,17 +16,17 @@ function getGCD(int $num1, int $num2): int
     return $num1;
 }
 
+function getPair(): array
+{
+    $num1 = mt_rand(1, 10);
+    $num2 = mt_rand(1, 10);
+    $pair = "{$num1} {$num2}";
+    $correctAnswer = getGCD($num1, $num2);
+    return [$pair, $correctAnswer];
+}
+
 function play(): void
 {
-    $gameData = function (): array {
-        $num1 = mt_rand(1, 10);
-        $num2 = mt_rand(1, 10);
-        $pair = "{$num1} {$num2}";
-        $correctAnswer = getGCD($num1, $num2);
-        return [$pair, $correctAnswer];
-    };
-    run(
-        DESCRIPTION,
-        $gameData
-    );
+    $gameData = fn() => getPair();
+    run(DESCRIPTION, $gameData);
 }

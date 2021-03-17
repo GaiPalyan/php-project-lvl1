@@ -35,8 +35,5 @@ function getExpressionResult(int $num1, int $num2, string $operator): int
 function play(): void
 {
     $gameData = fn() => getExpression();
-    run(
-        DESCRIPTION,
-        $gameData
-    );
+    run(DESCRIPTION, $gameData);
 }

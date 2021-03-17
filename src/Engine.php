@@ -5,7 +5,7 @@ namespace Brain\Games\Engine;
 use function cli\line;
 use function cli\prompt;
 
-const COUNT_ROUNDS = 3;
+const ROUNDS_COUNT = 3;
 
 function run(string $description, callable $gameData): void
 {
@@ -13,13 +13,13 @@ function run(string $description, callable $gameData): void
     $userName = prompt('May I have your name?');
     line('Hello, ' . $userName);
     line($description);
-    $correctAnswerCount = 0;
-    for ($i = 0; $i < COUNT_ROUNDS; $i++) {
+    $correctAnswersCount = 0;
+    for ($i = 0; $i < ROUNDS_COUNT; $i++) {
         [$gameQuestion, $correctAnswer] = call_user_func($gameData);
         line('Question: ' . $gameQuestion);
         $userAnswer = prompt('Your answer');
         if (strtolower($userAnswer) === strval($correctAnswer)) {
-            $correctAnswerCount++;
+            $correctAnswersCount++;
             line('Correct!');
         } else {
             line("'{$userAnswer}'" . ' is wrong answer ;(. Correct answer was ' . "'{$correctAnswer}'");
@@ -27,7 +27,7 @@ function run(string $description, callable $gameData): void
             break;
         }
     }
-    if ($correctAnswerCount === COUNT_ROUNDS) {
+    if ($correctAnswersCount === ROUNDS_COUNT) {
         line('Congratulations, ' . $userName . '!');
     }
 }

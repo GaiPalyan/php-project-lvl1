@@ -11,13 +11,16 @@ function isEven(int $int): bool
     return ($int % 2) === 0;
 }
 
+function getEven(): array
+{
+    $number = mt_rand(1, 30);
+    $correctAnswer = isEven($number) === true ? 'yes' : 'no';
+    return [$number, $correctAnswer];
+}
+
 function play(): void
 {
-    $gameData = function (): array {
-        $number = mt_rand(1, 30);
-        $correctAnswer = isEven($number) === true ? 'yes' : 'no';
-        return [$number, $correctAnswer];
-    };
+    $gameData = fn () => getEven();
     run(
         DESCRIPTION,
         $gameData
