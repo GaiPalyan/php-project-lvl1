@@ -6,11 +6,25 @@ use function Brain\Games\Engine\run;
 
 const DESCRIPTION = 'What number is missing in the progression?';
 
-function buildProgression(): array
+const HIDE = '..';
+
+function getFirstNum(): int
 {
-    $firstNum = mt_rand(1, 15);
-    $length = mt_rand(10, 15);
-    $step = mt_rand(2, 5);
+    return mt_rand(3, 10);
+}
+
+function getLength(): int
+{
+    return mt_rand(10, 20);
+}
+
+function getStep(): int
+{
+    return mt_rand(3, 8);
+}
+
+function buildProgression(int $firstNum, int $length, int $step): array
+{
     $progression = [];
     for ($n = 0; $n < $length; $n++) {
         $progression[] = $firstNum + $n * $step;
@@ -18,18 +32,23 @@ function buildProgression(): array
     return $progression;
 }
 
-function hideProgression(): array
+function getGameProgressionData(): array
 {
-    $progression = buildProgression();
-    $randPosition = array_rand($progression);
-    $correctAnswer = $progression[$randPosition];
-    $progression[$randPosition] = '..';
-    $hiddenProgression = implode(' ', $progression);
-    return [$hiddenProgression, $correctAnswer];
+    $progression = buildProgression(getFirstNum(), getLength(), getStep());
+    $randomPosition = array_rand($progression);
+
+    $correctAnswer = "{$progression[$randomPosition]}";
+
+    $hiddenProgression = function () use ($progression, $randomPosition) {
+        $progression[$randomPosition] = HIDE;
+        return $hiddenProgression = implode(' ', $progression);
+    };
+
+    return [$hiddenProgression(), $correctAnswer];
 }
 
 function play(): void
 {
-    $gameData = fn() => hideProgression();
+    $gameData = fn() => getGameProgressionData();
     run(DESCRIPTION, $gameData);
 }

@@ -19,7 +19,7 @@ function isPrime(int $num): bool
     return true;
 }
 
-function getPrime(): array
+function getGamePrimeData(): array
 {
     $number = mt_rand(1, 35);
     $correctAnswer = isPrime($number) ? 'yes' : 'no';
@@ -28,6 +28,6 @@ function getPrime(): array
 
 function play(): void
 {
-    $gameData = fn() => getPrime();
+    $gameData = fn() => getGamePrimeData();
     run(DESCRIPTION, $gameData);
 }
