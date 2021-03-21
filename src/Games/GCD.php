@@ -16,7 +16,7 @@ function getGCD(int $num1, int $num2): int
     return $num1;
 }
 
-function getPair($num1, $num2): string
+function getPair(int $num1, int $num2): string
 {
     return "{$num1} {$num2}";
 }

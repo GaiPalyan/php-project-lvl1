@@ -35,16 +35,13 @@ function buildProgression(int $firstNum, int $length, int $step): array
 function getGameProgressionData(): array
 {
     $progression = buildProgression(getFirstNum(), getLength(), getStep());
-    $randomPosition = array_rand($progression);
+    $randPosition = array_rand($progression);
 
-    $correctAnswer = "{$progression[$randomPosition]}";
+    $correctAnswer = "{$progression[$randPosition]}";
+    $progression[$randPosition] = HIDE;
 
-    $hiddenProgression = function () use ($progression, $randomPosition) {
-        $progression[$randomPosition] = HIDE;
-        return $hiddenProgression = implode(' ', $progression);
-    };
-
-    return [$hiddenProgression(), $correctAnswer];
+    $hiddenProgression = implode(' ', $progression);
+    return [$hiddenProgression, $correctAnswer];
 }
 
 function play(): void
