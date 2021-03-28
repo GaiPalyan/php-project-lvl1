@@ -23,10 +23,12 @@ function buildProgression(int $firstNum, int $length, int $step): array
     return $progression;
 }
 
-function hideIndex(array $progression, int $randomPosition): string
+function hideIndex(array $progression): array
 {
+    $randomPosition = array_rand($progression);
     $progression[$randomPosition] = INDEX_HIDER;
-    return $hiddenProgression = implode(' ', $progression);
+    $hiddenProgression = implode(' ', $progression);
+    return [$hiddenProgression, $randomPosition];
 }
 
 function getGameData(): array
@@ -35,10 +37,8 @@ function getGameData(): array
     $length = randNum(LENGTH_MIN, LENGTH_MAX);
     $step = randNum(STEP_MIN, STEP_MAX);
     $progression = buildProgression($startRange, $length, $step);
-    $randomPosition = array_rand($progression);
-    var_dump($randomPosition);
-    $hiddenProgression = hideIndex($progression, $randomPosition);
 
+    [$hiddenProgression, $randomPosition] = hideIndex($progression);
     $correctAnswer = "{$progression[$randomPosition]}";
 
     return [$hiddenProgression, $correctAnswer];
@@ -46,6 +46,5 @@ function getGameData(): array
 
 function play(): void
 {
-    $gameData = fn() => getGameData();
-    run(DESCRIPTION, $gameData);
+    run(DESCRIPTION, fn() => getGameData());
 }
