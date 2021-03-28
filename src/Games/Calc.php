@@ -2,8 +2,8 @@
 
 namespace Brain\Games\Calc;
 
-use function Brain\Games\Engine\randNum;
 use function Brain\Games\Engine\run;
+use function Brain\Games\Helpers\randNum;
 
 const DESCRIPTION = 'What is the result of the expression?';
 const OPERATORS = ['+', '-', '*'];

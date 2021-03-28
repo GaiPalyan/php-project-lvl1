@@ -2,8 +2,8 @@
 
 namespace Brain\Games\Even;
 
-use function Brain\Games\Engine\randNum;
 use function Brain\Games\Engine\run;
+use function Brain\Games\Helpers\randNum;
 
 const DESCRIPTION = 'Answer "yes" if the number is even, otherwise answer "no".';
 const RANGE_MIN = 1;

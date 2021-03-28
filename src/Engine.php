@@ -7,11 +7,6 @@ use function cli\prompt;
 
 const ROUNDS_COUNT = 3;
 
-function randNum(int $from, int $to): int
-{
-    return mt_rand($from, $to);
-}
-
 function run(string $description, callable $gamesData): void
 {
     line('Welcome to the Brain Games!');

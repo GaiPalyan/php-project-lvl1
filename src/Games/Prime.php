@@ -2,8 +2,8 @@
 
 namespace Brain\Games\Prime;
 
-use function Brain\Games\Engine\randNum;
 use function Brain\Games\Engine\run;
+use function Brain\Games\Helpers\randNum;
 
 const DESCRIPTION = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 const RANGE_MIN = 1;

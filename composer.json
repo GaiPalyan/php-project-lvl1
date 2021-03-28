@@ -27,7 +27,8 @@
             "src/Games/Calc.php",
             "src/Games/GCD.php",
             "src/Games/Progression.php",
-            "src/Games/Prime.php"
+            "src/Games/Prime.php",
+            "src/Helpers.php"
         ]
     },
     "require": {
