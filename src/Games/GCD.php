@@ -2,9 +2,13 @@
 
 namespace Brain\Games\gcd;
 
+use function Brain\Games\Engine\randNum;
 use function Brain\Games\Engine\run;
 
 const DESCRIPTION = 'Find the greatest common divisor of given numbers.';
+const RANGE_MIN = 1;
+const RANGE_MAX = 50;
+
 
 function getGCD(int $num1, int $num2): int
 {
@@ -21,16 +25,15 @@ function getPair(int $num1, int $num2): string
     return "{$num1} {$num2}";
 }
 
-function getGameGcdData(): array
+function getGameData(): array
 {
-    $num1 = mt_rand(1, 10);
-    $num2 = mt_rand(1, 10);
+    $num1 = randNum(RANGE_MIN, RANGE_MAX);
+    $num2 = randNum(RANGE_MIN, RANGE_MAX);
     $correctAnswer = getGCD($num1, $num2);
     return [getPair($num1, $num2), (string) $correctAnswer];
 }
 
 function play(): void
 {
-    $gameData = fn() => getGameGcdData();
-    run(DESCRIPTION, $gameData);
+    run(DESCRIPTION, fn() => getGameData());
 }

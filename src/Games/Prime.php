@@ -2,9 +2,12 @@
 
 namespace Brain\Games\Prime;
 
+use function Brain\Games\Engine\randNum;
 use function Brain\Games\Engine\run;
 
 const DESCRIPTION = 'Answer "yes" if given number is prime. Otherwise answer "no".';
+const RANGE_MIN = 1;
+const RANGE_MAX = 50;
 
 function isPrime(int $num): bool
 {
@@ -19,15 +22,14 @@ function isPrime(int $num): bool
     return true;
 }
 
-function getGamePrimeData(): array
+function getGameData(): array
 {
-    $number = mt_rand(1, 35);
+    $number = randNum(RANGE_MIN, RANGE_MAX);
     $correctAnswer = isPrime($number) ? 'yes' : 'no';
     return [$number, $correctAnswer];
 }
 
 function play(): void
 {
-    $gameData = fn() => getGamePrimeData();
-    run(DESCRIPTION, $gameData);
+    run(DESCRIPTION, fn() => getGameData());
 }
