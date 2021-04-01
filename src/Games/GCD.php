@@ -2,7 +2,7 @@
 
 namespace Brain\Games\gcd;
 
-use function Brain\Games\Helpers\randNum;
+use function Brain\Games\Helpers\getRandNum;
 use function Brain\Games\Engine\run;
 
 const DESCRIPTION = 'Find the greatest common divisor of given numbers.';
@@ -27,8 +27,8 @@ function getPair(int $num1, int $num2): string
 
 function getGameData(): array
 {
-    $num1 = randNum(RANGE_MIN, RANGE_MAX);
-    $num2 = randNum(RANGE_MIN, RANGE_MAX);
+    $num1 = getRandNum(RANGE_MIN, RANGE_MAX);
+    $num2 = getRandNum(RANGE_MIN, RANGE_MAX);
     $correctAnswer = getGCD($num1, $num2);
     return [getPair($num1, $num2), (string) $correctAnswer];
 }

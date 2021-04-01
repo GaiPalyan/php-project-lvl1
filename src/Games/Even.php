@@ -3,7 +3,7 @@
 namespace Brain\Games\Even;
 
 use function Brain\Games\Engine\run;
-use function Brain\Games\Helpers\randNum;
+use function Brain\Games\Helpers\getRandNum;
 
 const DESCRIPTION = 'Answer "yes" if the number is even, otherwise answer "no".';
 const RANGE_MIN = 1;
@@ -16,7 +16,7 @@ function isEven(int $int): bool
 
 function getGameData(): array
 {
-    $number = randNum(RANGE_MIN, RANGE_MAX);
+    $number = getRandNum(RANGE_MIN, RANGE_MAX);
     $correctAnswer = isEven($number) ? 'yes' : 'no';
     return [$number, $correctAnswer];
 }

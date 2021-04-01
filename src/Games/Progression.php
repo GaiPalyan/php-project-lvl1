@@ -3,10 +3,10 @@
 namespace Brain\Games\Progression;
 
 use function Brain\Games\Engine\run;
-use function Brain\Games\Helpers\randNum;
+use function Brain\Games\Helpers\getRandNum;
 
 const DESCRIPTION = 'What number is missing in the progression?';
-const INDEX_HIDER = '..';
+const ELEMENT_HIDER = '..';
 const START_MIN = 1;
 const START_MAX = 50;
 const LENGTH_MIN = 10;
@@ -23,23 +23,23 @@ function buildProgression(int $firstNum, int $length, int $step): array
     return $progression;
 }
 
-function hideIndex(array $progression): array
+function hideElement(array $progression): array
 {
     $randomPosition = array_rand($progression);
-    $progression[$randomPosition] = INDEX_HIDER;
+    $progression[$randomPosition] = ELEMENT_HIDER;
     $hiddenProgression = implode(' ', $progression);
     return [$hiddenProgression, $randomPosition];
 }
 
 function getGameData(): array
 {
-    $startRange = randNum(START_MIN, START_MAX);
-    $length = randNum(LENGTH_MIN, LENGTH_MAX);
-    $step = randNum(STEP_MIN, STEP_MAX);
+    $startRange = getRandNum(START_MIN, START_MAX);
+    $length = getRandNum(LENGTH_MIN, LENGTH_MAX);
+    $step = getRandNum(STEP_MIN, STEP_MAX);
     $progression = buildProgression($startRange, $length, $step);
 
-    [$hiddenProgression, $randomPosition] = hideIndex($progression);
-    $correctAnswer = "{$progression[$randomPosition]}";
+    [$hiddenProgression, $randomPosition] = hideElement($progression);
+    $correctAnswer = (string) $progression[$randomPosition];
 
     return [$hiddenProgression, $correctAnswer];
 }
