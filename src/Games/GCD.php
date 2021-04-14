@@ -5,10 +5,9 @@ namespace Brain\Games\gcd;
 use function Brain\Games\Helpers\getRandNum;
 use function Brain\Games\Engine\run;
 
-const DESCRIPTION = 'Find the greatest common divisor of given numbers.';
+const DESCRIPTION = "Find the greatest common divisor of given numbers.";
 const RANGE_MIN = 1;
 const RANGE_MAX = 50;
-
 
 function getGCD(int $num1, int $num2): int
 {

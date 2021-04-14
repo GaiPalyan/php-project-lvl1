@@ -5,8 +5,8 @@ namespace Brain\Games\Progression;
 use function Brain\Games\Engine\run;
 use function Brain\Games\Helpers\getRandNum;
 
-const DESCRIPTION = 'What number is missing in the progression?';
-const ELEMENT_HIDER = '..';
+const DESCRIPTION = "What number is missing in the progression?";
+const ELEMENT_HIDER = "..";
 const START_MIN = 1;
 const START_MAX = 50;
 const LENGTH_MIN = 10;

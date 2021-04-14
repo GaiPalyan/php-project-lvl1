@@ -30,7 +30,7 @@ function getExpressionResult(int $operand1, int $operand2, string $operator): in
         case '*':
             return $correctAnswer = $operand1 * $operand2;
         default:
-            throw new \Error('Unknown operator' . "$operator");
+            throw new \Error("Unknown operator '$operator'");
     }
 }
 
