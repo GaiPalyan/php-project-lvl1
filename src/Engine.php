@@ -11,11 +11,11 @@ function run(string $description, callable $gamesData): void
 {
     line("Welcome to the Brain Games!");
     $userName = prompt("May I have your name?");
-    line("Hello, " . $userName);
+    line("Hello, $userName");
     line($description);
     for ($i = 0; $i < ROUNDS_COUNT; $i++) {
         [$gameQuestion, $correctAnswer] = call_user_func($gamesData);
-        line("Question: " . $gameQuestion);
+        line("Question: $gameQuestion");
         $userAnswer = prompt("Your answer");
         if (strtolower($userAnswer) === $correctAnswer) {
             line("Correct!");
